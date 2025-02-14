@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Guardada</title>
+    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="css.snowboard.css">
+
+</head>
+<body>
+    <header>
+        <h1>SNOW&EAGLES</h1>
+        <br>
+        <nav id="menu">
+            <img src="LOGO SNOW.jpg" alt="logo">
+            <ul id="botonera">
+                <li><a href="tablas.html">TABLAS</a></li>
+                <li><a href="botas.html">BOTAS</a></li>
+                <li><a href="ropa tecnica.html">ROPA TECNICA</a></li>
+                <li><a href="quien somos.html">QUIEN SOMOS</a></li>
+                <li><a href="formulario.html">FORMULARIO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contenedor">
+            
+        <div class="contact-form">
+            <h2>Contacto</h2>
+            <form id="formularioContacto">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Correo Electronico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a href="Guardar.html" class="button">Volver al formulario</a>
+    </div>
+    
+    <!-- Código JavaScript para guardar datos en Local Storage -->
+    <script>
+        // Escuchar el evento de envío del formulario
+        document.getElementById('formularioContacto').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que la página se recargue al enviar el formulario
+
+            // Obtener los valores del formulario
+            let nombre = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let mensaje = document.getElementById('message').value;
+
+            // Crear un objeto con los datos del formulario
+            let datosFormulario = {
+                nombre: nombre,
+                email: email,
+                mensaje: mensaje
+            };
+
+            // Guardar los datos en Local Storage
+            localStorage.setItem('formularioContacto', JSON.stringify(datosFormulario));
+
+            // Mostrar un mensaje de confirmación al usuario
+            alert('¡Datos guardados correctamente!');
+
+            // Limpiar los campos del formulario
+            document.getElementById('formularioContacto').reset();
+        });
+    </script>
+
+    <br>
+    <br><br><br>
+    <br><br><br>
+    <br><br><br><br><br><br>
+    <footer></footer>
+        <p>&copy; 2025 Consultoría de Snowboard</p>
+    </footer>
+</body>
+</html>
